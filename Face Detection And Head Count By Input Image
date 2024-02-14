@@ -32,3 +32,12 @@ for (x, y, w, h) in faces:
 
 # Display the face count on the image
 cv2.putText(image, f'Face Count: {face_count}', (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, cv2.LINE_AA)
+
+# Create a full-screen window
+cv2.namedWindow('Face Detection', cv2.WND_PROP_FULLSCREEN)
+cv2.setWindowProperty('Face Detection', cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+
+# Display the output image with detected faces and face count
+cv2.imshow('Face Detection', image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
