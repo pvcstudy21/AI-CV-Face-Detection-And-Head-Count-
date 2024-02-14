@@ -3,9 +3,9 @@ import cv2
 # Load the pre-trained face detection model
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
-# Load the input image or use a webcam feed
-# Replacing 'path/to/your/image.jpg' with the actual path and webcam index (0 for default webcam)
-image_path = 'path/to/your/image.jpg'
+# Load the a webcam feed as input
+# webcam index (0 for default webcam)
+
 cap = cv2.VideoCapture(0)
 
 while True:
