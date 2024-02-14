@@ -6,3 +6,12 @@ face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_fronta
 # Load the input image
 image_path = r"C:\Users\Dell\Desktop\75th birthday selected photo\IMG_2392.JPG"
 image = cv2.imread(image_path)
+
+# Get screen resolution
+screen_width, screen_height = 1920, 1080
+
+# Resize the image to fit the screen
+image = cv2.resize(image, (screen_width, screen_height))
+
+# Convert the image to grayscale
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
