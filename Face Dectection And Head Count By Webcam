@@ -29,6 +29,6 @@ while True:
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
-# Release the webcam or close the image file
+# Release the webcam
 cap.release()
 cv2.destroyAllWindows()
