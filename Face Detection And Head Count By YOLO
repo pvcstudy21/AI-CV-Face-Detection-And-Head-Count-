@@ -9,3 +9,11 @@ with open(r"C:\Users\Dell\Downloads\yolov3.txt", "r") as f:
     classes = f.read().strip().split('\n')
 
 layer_names = net.getUnconnectedOutLayersNames()
+
+#image = cv2.imread(r"C:\Users\Dell\Desktop\75th birthday selected photo\IMG_2364.JPG")
+image = cv2.imread(r"C:\Users\Dell\Downloads\Sample for YOLO.jpg")
+height, width = image.shape[:2]
+
+# Preprocess image for YOLO
+blob = cv2.dnn.blobFromImage(image, scalefactor=1/255.0, size=(416, 416), swapRB=True, crop=False)
+net.setInput(blob)
