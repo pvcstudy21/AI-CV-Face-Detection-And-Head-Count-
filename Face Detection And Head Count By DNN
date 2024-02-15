@@ -17,3 +17,22 @@ image = cv2.resize(image, (screen_width, screen_height))
 
 # Convert the image to blob format
 blob = cv2.dnn.blobFromImage(image, 1.0, (300, 300), (104, 177, 123))
+
+# Load the pre-trained deep learning model for face detection
+net = cv2.dnn.readNetFromCaffe(model_prototxt, model_weights)
+
+# Set the input to the neural network
+net.setInput(blob)
+
+# Perform face detection
+detections = net.forward()
+
+# Draw rectangles around the detected faces and count them
+face_count = 0
+for i in range(detections.shape[2]):
+    confidence = detections[0, 0, i, 2]
+    if confidence > 0.15:  # Adjust confidence threshold as needed
+        box = detections[0, 0, i, 3:7] * np.array([screen_width, screen_height, screen_width, screen_height])
+        (startX, startY, endX, endY) = box.astype("int")
+        cv2.rectangle(image, (startX, startY), (endX, endY), (0, 255, 0), 2)
+        face_count += 1
