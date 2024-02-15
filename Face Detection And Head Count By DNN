@@ -1,0 +1,6 @@
+import cv2
+import numpy as np
+
+# Specify the paths to the downloaded model files
+model_prototxt = r"C:\Users\Dell\Downloads\deploy.prototxt.txt"
+model_weights = r"C:\Users\Dell\Downloads\res10_300x300_ssd_iter_140000.caffemodel"
