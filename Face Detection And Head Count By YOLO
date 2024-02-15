@@ -1,0 +1,11 @@
+import cv2
+import numpy as np
+
+# Load YOLO model
+net = cv2.dnn.readNet(r"C:\Users\Dell\Downloads\yolov3.weights", r"C:\Users\Dell\Downloads\yolov3.cfg")
+
+# Load YOLO classes
+with open(r"C:\Users\Dell\Downloads\yolov3.txt", "r") as f:
+    classes = f.read().strip().split('\n')
+
+layer_names = net.getUnconnectedOutLayersNames()
