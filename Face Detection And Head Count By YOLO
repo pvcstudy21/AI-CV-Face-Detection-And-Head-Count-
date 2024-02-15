@@ -42,3 +42,15 @@ for detection in detections:
 
             # Increment head count
             head_count += 1
+
+# Display head count
+cv2.putText(image, f"Heads: {head_count}", (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+
+# Create a full-screen window
+cv2.namedWindow('Face Detection', cv2.WND_PROP_FULLSCREEN)
+cv2.setWindowProperty('Face Detection', cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+
+# Display the result
+cv2.imshow("Face Detection", image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
